@@ -2,12 +2,12 @@ Implement a binary search tree (BST) in Python. It should be implemented using t
 
 Implement the following functionalities:
 
-Constructor - creates an object representing a tree with the root field set to None.
-Search - searches and returns the value corresponding to the given key (or None).
-Insert - inserts the given value according to the given key. If an element with the same key already exists, its value should be overwritten (the function remembers the predecessor, see lecture).
-Delete - removes the element with the given key.
-Print - prints the contents of the tree as a list from the smallest to the largest key in the form of key:value.
-Height - a method that returns the height of the tree from the given node to the node that does not have any children (leaf node) - the longest path in the tree.
+- Constructor - creates an object representing a tree with the root field set to None.
+- Search - searches and returns the value corresponding to the given key (or None).
+- Insert - inserts the given value according to the given key. If an element with the same key already exists, its value should be overwritten (the function remembers the predecessor, see lecture).
+- Delete - removes the element with the given key.
+- Print - prints the contents of the tree as a list from the smallest to the largest key in the form of key:value.
+- Height - a method that returns the height of the tree from the given node to the node that does not have any children (leaf node) - the longest path in the tree.
 The search function performs a recursive search for an element in the tree based on the key.
 The insert function creates new tree elements based on the given key. The right branch contains keys greater than the key in the parent node, and the left branch contains keys smaller than the key in the parent node.
 
