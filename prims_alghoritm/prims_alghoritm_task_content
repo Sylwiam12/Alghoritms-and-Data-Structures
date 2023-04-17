@@ -1,0 +1,38 @@
+The Prim's algorithm is simple, greedy, and interestingly correct. We start from a selected vertex, add it to our tree, find the edge with the smallest weight that connects a vertex in the tree with a vertex outside the tree, add the edge and the vertex to which it leads to the tree, and repeat until there are no more vertices left.
+
+Formally, the Prim-MST(G) algorithm can be written as follows:
+Start with an arbitrary vertex s in graph G
+While (there are vertices in G not in the tree Tprim)
+Choose the edge with the smallest weight between a vertex in the tree and one outside it
+Add the selected edge and vertex to the tree Tprim
+
+The basic ("naive") implementation has a complexity of O(mn), where m is the number of edges and n is the number of vertices. This is due to the "choose the edge..." step, where we examine all edges each time - please note that this is an "upper bound".
+
+We will use a slightly more advanced (smart) variant, which has a complexity of O(n^2) - according to Steven S. Skiena's book "The Algorithms Design Manual". The improvement consists of storing information about the edges with the smallest weight between vertices in the tree and those not in the tree. It is worth noting that such an update is only performed for a given vertex in each iteration.
+
+Our implementation requires three additional lists:
+-  intree - whether a vertex is in the tree, distance - the minimum weight of edges for a given vertex, parent - the "parent" / previous vertex in the tree (to describe the edge). The size is n, and they are initialized accordingly: 0, a large number (e.g. float('inf')), -1.
+
+- we also need a structure for our tree (MST) - we propose to create a graph with the same vertices as the input graph, but without edges for now.
+
+- we start with any vertex.
+
+- the entire algorithm runs in a while loop executed while the current vertex v is outside the tree, i.e. intree[v] == 0.
+
+- we add the vertex to the tree, i.e. intree[v]=1.
+
+- we examine the surroundings of the currently considered vertex:
+
+        - we check whether the weight of the edge is smaller than that stored in the distance array and whether the vertex is not already in the tree.
+
+        - if the condition is met, we update the distance array and store the parent.
+
+- we look for the next vertex to add to the tree:
+
+        - we have to scan through all vertices (technically those that are not in the tree).
+
+        - we look for one that is not in the MST and has the smallest value in the distance array - i.e. the sought edge with the smallest weight.
+
+        - we add the edge to the MST - technically two edges - and use the information from the parent list.
+
+        - it is also worth calculating the sum of the edges that form the spanning tree - the "length" of the minimum spanning tree.
