@@ -1,4 +1,3 @@
-#skończone
 def realloc(tab, size):
     oldSize = len(tab)
     return [tab[i] if i < oldSize else None for i in range(size)]
