@@ -21,9 +21,9 @@ Concept: We need a better description of the edges. In addition to weight (capac
 
 Implementation (proposal):
 
-    1. Create a class (e.g., Edge) with the mentioned attributes, in which init receives the capacity and information about whether the edge is "residual." In the "non-residual" edge, the initial residual flow is initialized with the capacity value, and the initial flow is set to 0. In the "residual" edge, the initial residual flow is zero (the 'flow' flow is not used).
+- Create a class (e.g., Edge) with the mentioned attributes, in which init receives the capacity and information about whether the edge is "residual." In the "non-residual" edge, the initial residual flow is initialized with the capacity value, and the initial flow is set to 0. In the "residual" edge, the initial residual flow is zero (the 'flow' flow is not used).
 
-    2. Allow the edge to be printed using the print method (the repr method that places capacity, flow, residual flow, and True or False - whether the edge is residual or not - separated by spaces in the string).
+- Allow the edge to be printed using the print method (the repr method that places capacity, flow, residual flow, and True or False - whether the edge is residual or not - separated by spaces in the string).
 
 4. Graph loading
 During graph loading, we proceed similarly to the previous exercise: we add two vertices that the loaded edge connects, as well as the edge itself. The number given with the edge represents the capacity (which will initiate the residual flow value). In addition, we add a second edge connecting the vertices in the opposite direction - this residual edge has the initial residual flow set to zero and is flagged as residual.
